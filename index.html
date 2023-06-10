@@ -1,54 +1,53 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	<title>Coming Soon 3</title>
-	<meta charset="UTF-8">
-	
-	
-	<link rel="icon" type="image/png" href="images/icons/f.png">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
-	
-	
-	<div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url(bg01.png);/* background-color: beige; */">
-		<div class="wsize1 bor1 bg1 p-t-175 p-b-45 p-l-15 p-r-15 respon1">
-			<div class="wrappic1">
-				<img src="images/icons/logo.png" alt="LOGO">
-			</div>
-
-			<p class="txt-center m1-txt1 p-t-33 p-b-68">
-				OUR WEBSITE IS UNDER CONSTRUCTION
-			 </p>
-
-			
-
-			<form class="flex-w flex-c-m contact100-form validate-form p-t-55">
-				<div class="wrap-input100 validate-input where1" data-validate="Email is required: ex@abc.xyz">
-					<input class="s1-txt2 placeholder0 input100" type="text" name="email" placeholder="Your Email">
-					<span class="focus-input100"></span>
-				</div>
-
-				
-				<button class="flex-c-m s1-txt3 size3 how-btn trans-04 where1">
-					GET NOTIFIED
-				</button>
-				
-			</form>
-
-			
-			
-		</div>
-	</div>
-
-</body></html>
+<html lang="en">
+  <head>
+    <title>Coming Soon 3</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/icons/f.png">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+  </head>
+  <body>
+    <div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url(bg01.png);/* background-color: beige; */">
+      <div class="wsize1 bor1 bg1 p-t-175 p-b-45 p-l-15 p-r-15 respon1">
+        <div class="wrappic1">
+          <img src="images/icons/logo.png" alt="LOGO">
+        </div>
+        <p class="txt-center m1-txt1 p-t-33 p-b-68"> OUR WEBSITE IS UNDER CONSTRUCTION </p>
+        <form class="flex-w flex-c-m contact100-form validate-form p-t-55" name="submit-to-google-sheet">
+          <div class="wrap-input100 validate-input where1" data-validate="Email is required: ex@abc.xyz">
+            <input class="s1-txt2 placeholder0 input100" type="text" name="email" placeholder="Your Email">
+            <span class="focus-input100"></span>
+          </div>
+          <button class="flex-c-m s1-txt3 size3 how-btn trans-04 where1" type="submit
+				"> GET NOTIFIED </button>
+          <br>
+          <span id="Success"></span>
+        </form>
+        <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbzysCEWs479ilPF3FL6dAihnQb8bhf0QtbELlZ1C9LbRRVTo4FknCrop5gw3193udk/exec'
+          const form = document.forms['submit-to-google-sheet']
+          const Success = document.getElementById('success')
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+              method: 'POST',
+              body: new FormData(form)
+            }).then(response => {
+              Success.innerHTML = "THANK YOU!!"
+            })
+          })
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
