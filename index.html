@@ -36,7 +36,7 @@
         <script>
           const scriptURL = 'https://script.google.com/macros/s/AKfycbzysCEWs479ilPF3FL6dAihnQb8bhf0QtbELlZ1C9LbRRVTo4FknCrop5gw3193udk/exec'
           const form = document.forms['submit-to-google-sheet']
-          const Success = document.getElementById('success')
+          const Success = document.getElementById('Success')
           form.addEventListener('submit', e => {
             e.preventDefault()
             fetch(scriptURL, {
